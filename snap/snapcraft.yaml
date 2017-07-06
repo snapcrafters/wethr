@@ -2,6 +2,12 @@ name: wethr
 version: master
 summary: Command line weather tool.
 description: |
+  Get current weather:-
+    $ wethr
+  Get current weather in metric units
+    $ wethr --metric
+  Get current weather in imperial units
+    $ wethr --imperial
 
 grade: stable
 confinement: strict
