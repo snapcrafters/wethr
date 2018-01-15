@@ -1,5 +1,5 @@
 name: wethr
-version: master
+version: '1.5.1'
 summary: Command line weather tool.
 description: |
   Get current weather:-
