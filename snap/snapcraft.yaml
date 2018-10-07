@@ -1,6 +1,4 @@
 name: wethr
-version: latest
-version-script: git -C parts/wethr/build describe --tags
 summary: Command line weather tool.
 description: |
   Get current weather:-
@@ -9,6 +7,7 @@ description: |
     $ wethr --metric
   Get current weather in imperial units
     $ wethr --imperial
+adopt-info: wethr
 
 grade: stable
 confinement: strict
@@ -24,7 +23,8 @@ parts:
     plugin: nodejs
     source: https://github.com/twobucks/wethr.git
     source-type: git
-    override-build: |
+    override-pull: |
+      snapcraftctl pull
       last_committed_tag="$(git describe --tags --abbrev=0)"
       last_committed_tag_ver="$(echo ${last_committed_tag} | sed 's/v//')"
       last_released_tag="$(snap info wethr | awk '$1 == "beta:" { print $2 }')"
@@ -34,7 +34,7 @@ parts:
         git fetch
         git checkout "${last_committed_tag}"
       fi
-      snapcraftctl build
+      snapcraftctl set-verion "$(git describe --tags | sed 's/v//')"
     build-packages:
       - git
       - sed
