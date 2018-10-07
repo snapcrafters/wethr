@@ -34,7 +34,7 @@ parts:
         git fetch
         git checkout "${last_committed_tag}"
       fi
-      snapcraftctl set-verion "$(git describe --tags | sed 's/v//')"
+      snapcraftctl set-version "$(git describe --tags | sed 's/v//')"
     build-packages:
       - git
       - sed
