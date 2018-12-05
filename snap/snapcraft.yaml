@@ -21,6 +21,7 @@ apps:
 parts:
   wethr:
     plugin: nodejs
+    node-engine: "10.14.1"
     source: https://github.com/twobucks/wethr.git
     source-type: git
     override-pull: |
