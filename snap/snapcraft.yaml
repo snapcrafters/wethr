@@ -8,7 +8,7 @@ description: |
   Get current weather in imperial units
     $ wethr --imperial
 adopt-info: wethr
-
+base: core20
 grade: stable
 confinement: strict
 
@@ -19,14 +19,14 @@ architectures:
 
 apps:
   wethr:
-    command: wethr
+    command: bin/wethr
     plugs:
       - network
 
 parts:
   wethr:
-    plugin: nodejs
-    node-engine: "10.14.1"
+    plugin: npm
+    npm-node-version: "10.14.1"
     source: https://github.com/twobucks/wethr.git
     source-type: git
     override-pull: |
